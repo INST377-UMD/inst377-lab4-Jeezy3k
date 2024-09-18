@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INST377_Lab4</title>
+    
+    <!-- CSS -->
+    <style>
+        body {
+            background-color: lightblue;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        div {
+            width: 35%;
+            height: 50%;
+            float: left;
+        }
+
+        #name {
+            border: 2px solid black;
+            padding: 10px;
+            margin: 10px;
+            background-color: purple;
+            text-align: center; 
+        }
+
+        #textTester {
+            border: 2px solid black;
+            padding: 10px;
+            margin: 10px;
+            background-color: purple;
+            text-align: center; 
+        }
+
+        #changeColor {
+            border: 2px solid black;
+            padding: 10px;
+            margin: 10px;
+            background-color: purple;
+            text-align: center; 
+        }
+
+        #addText {
+            border: 2px solid black;
+            padding: 10px;
+            margin: 10px;
+            background-color: purple;
+            text-align: center; 
+        }
+    </style>
+</head>
+
+<body>
+    <h1>INST377 - Lab 4</h1>
+
+    <!-- Part 2 -->
+    <div id="name">
+        <form>
+            <label for="nameInput">Name: </label>
+            <input id="nameInput" type="text" required>
+            <input type="submit" onclick="nameAlert()" value="Alert Me!">
+        </form>
+    </div>
+
+    <!-- Part 3 -->
+    <div id="changeColor">
+        <button id="color" onclick="changeColor()">Change Color</button>
+    </div>
+
+    <!-- Part 4 -->
+    <div id="textTester">
+        <form>
+            <label for="textInput">Text Tester: </label>
+            <input id="textInput" type="text">
+            <button id="textChecker" type="button" onclick="validateText()">Validate Text</button>
+        </form>
+    </div>
+
+    <!-- Part 5 -->
+    <div id="addText">
+        <button id="text" onclick="addText()">Add Text</button>
+    </div>
+
+    <script type="text/javascript">
+        function nameAlert() {
+            var fName = document.getElementById("nameInput").value;
+            alert('Hi ' + fName + "!");
+        }
+
+        function changeColor() {
+            if (document.body.style.backgroundColor == 'lightblue') {
+                document.body.style.backgroundColor = 'green';
+            } else {
+                document.body.style.backgroundColor = 'lightblue';
+            }
+        }
+
+        function validateText() {
+            var textInput = document.getElementById('textInput').value;
+            var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            if (validation.test(textInput)) {
+                return alert('Please do not use special characters');
+            } else {
+                return alert('This text has no special characters. Congrats!');
+            }
+        }
+
+        function addText() {
+            var header = document.querySelector('h1');
+            header.textContent += ' Add Text';
+        }
+    </script>
+</body>
+
+</html>
